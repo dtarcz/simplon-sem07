@@ -1,0 +1,111 @@
+Vous avez suivi l'introduction et chargé jquery dans votre page HTML, voici quelques bouts de code afin de tester quelques fonctions jQuery.
+
+Dans la majorité des cas, nous souhaiterons exécuter nos codes une fois le chargement de la page terminée, grâce à la fonction ready() appliquée à l'objet document, nous savons quand la page est totalement prête. C'est-à-dire lorsque tous les objets de la page seront prêts à être manipulés par JavaScript.
+
+$(document).ready(function() {
+   // Votre code ici
+});
+
+La fonction $() est la fonction magique de jQuery. Celle-ci permet de cibler les éléments grâce aux sélecteurs, de déclarer des gestionnaires d'événements, d'utiliser les autres fonctions de la librairie, il s'agit en réalité d'un alias sur l'objet jQuery lui-même.
+
+Vous pouvez donc aussi utiliser jQuery() à la place de $() pour éviter les conflits avec d'autres librairies javascript qui utiliserait aussi le symbole $.
+
+ 
+
+Avant de pouvoir manipuler un élément de la page, il faut le selectionner, il y a plusieurs façon :
+
+Exemple sur ce code HTML :
+
+<div id="box">
+    <p classe="contenu">Jquery va vous donner des supers pouvoirs</p>
+</div>
+
+    grâce à un identifiant CSS :  $('#box')
+    grâce à une classe CSS : $('.contenu')
+    avec le nom de l'élément $('p') , dans ce cas vous sélectionnez tous les éléments p de la page
+    pour cibler uniquement ceux contenu dans le div avec l'id box vous auriez pu faire cela: $('#box > p')
+
+ 
+
+ 
+
+Comme première demonstration, nous allons masquer un élément 
+
+<div id="masque"> à la fin du chargement de la page</div>
+
+Puis le révéler grâce à la fonction show() dès le clic sur le lien <a id="afficher">Afficher l'élément</a>.
+
+$(document).ready(function() {
+
+   // Dès le chargement on masque l'élément portant l'id #masque
+   // grâce à la fonction hide() de jQuery
+   $("#masque").hide();
+
+   // On déclare un gestionnaire d'événement 'click' sur un lien
+   // pour afficher l'élément précédemment masqué
+   $("a#afficher").click(function() {
+
+      // La fonction click() appliquée à notre sélecteur $("a#afficher")
+      // prend en argument une fonction anonyme (sans nom) contenant
+      // le reste des instructions :
+
+      $("#masque").show("fast");
+
+      // L'argument "fast" est facultatif mais nous permet
+      // d'afficher l'élément avec une petite animation
+
+      return false;
+
+      // On retourne 'false' pour prévenir l'exécution du lien
+      // c'est à dire pour éviter au navigateur de changer de
+      // page en suivant son attribut href
+
+   });
+
+   // Faites bien attention à la syntaxe et à l'imbrication des
+   // parenthèses et accolades
+
+});
+
+ 
+
+Faire disparaître vers le haut une balise div avec slideUp() ou vers le bas avec slideDown()
+
+ 
+
+<button id="deroulerHaut">Fermer l'élément vers le haut</button>
+<button id="deroulerBas">Dérouler l'élément vers le bas</button>
+
+$("#deroulerHaut").click(function() {
+ $("#masque").slideUp();
+ });
+
+$("#deroulerBas").click(function() {
+ $("#masque").slideDown();
+ });
+
+ 
+
+Faire alterner l'affichage d'un élément toggle() :
+
+Code JS :
+
+<script>
+$(document).ready(function(){
+ $("button").click(function(){
+ $("p").toggle();
+ });
+});
+</script>
+
+Code HTML :
+
+<button>Toggle</button>
+<p>This is a paragraph with little content.</p>
+<p>This is another small paragraph.</p>
+=================
+
+Allez pushé à chaque fois que vous pensez avoir franchi une consigne/fier de votre bout de code.
+===================
+nicolas_ [1:49 PM] 
+Pour ceux/celles qui ont fini. Autre chose, c'est d'utiliser un plugin jQuery à trouver sur internet qui fait défilé au minimum 5 images(de votre choix) et qu'on puisse réglez le temps entre chaque image et le mettre en pause!
