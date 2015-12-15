@@ -2,25 +2,7 @@ body{
   width: 600px;
   margin: auto;
 }
-label{
-  display: inline-block;
-  width: 220px;
-  padding: 4px;
-  margin-bottom: 4px;
-}
-input{
-  padding: 4px;
-  margin-bottom: 4px;
-}
 
-/*VALIDATION FORMULAIRE*/
-input:focus:required:invalid {
-  background: pink url(ico_validation.png) 379px 3px no-repeat;
-}
-input:required:valid {
-  background-color: #fff;
-  background-position: 379px -61px;
-}
 .secret {
   background-color: #e74c3c;
   color: #ecf0f1;
@@ -30,4 +12,8 @@ input:required:valid {
   text-align: center;
   font-size: 2em;
   font-family: fantasy;
+}
+
+.important {
+  
 }
